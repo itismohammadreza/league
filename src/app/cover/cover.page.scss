@@ -4,3 +4,9 @@
   background-size: cover;
   background-position: center center;
 }
+
+@media (max-width: 575px) {
+  .wrapper {
+    background-position: 80%;
+  }
+}

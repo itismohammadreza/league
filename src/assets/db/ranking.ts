@@ -8,7 +8,6 @@ const AliRn = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 
@@ -20,7 +19,6 @@ const MohammadReza = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 
@@ -32,7 +30,6 @@ const Behnam = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 
@@ -44,7 +41,6 @@ const AliReza = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 
@@ -56,7 +52,6 @@ const AliReza_D = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 
@@ -68,7 +63,6 @@ const Reza = new Ranking({
   lose: 1,
   gf: 10,
   ga: 7,
-  gd: 3,
   point: 10
 })
 

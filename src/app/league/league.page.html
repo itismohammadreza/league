@@ -3,13 +3,7 @@
     <div class="row">
       <div class="col-12 mb-5">
         <h1 class="display-3">League</h1>
-        <p-table [value]="league" [columns]="tableColumns" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
-          <!--          <ng-template pTemplate="header" let-columns>-->
-          <!--            <tr>-->
-          <!--              <th></th>-->
-          <!--              <th *ngFor="let col of columns">{{col}}</th>-->
-          <!--            </tr>-->
-          <!--          </ng-template>-->
+        <p-table [value]="league" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
           <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
             <tr>
               <ng-container *ngFor="let item of data;let cellIndex=index">
@@ -21,22 +15,6 @@
                   </td>
                 </ng-template>
               </ng-container>
-              <!--              <th>{{user.name}}</th>-->
-              <!--              <td [class.bg-none]="rowIndex == 1">-->
-              <!--                {{rowIndex == 1 ? '' : user.name}}-->
-              <!--              </td>-->
-              <!--              <td [class.bg-none]="rowIndex == 2">-->
-              <!--                {{rowIndex == 2 ? '' : user.name}}-->
-              <!--              </td>-->
-              <!--              <td [class.bg-none]="rowIndex == 3">-->
-              <!--                {{rowIndex == 3 ? '' : user.name}}-->
-              <!--              </td>-->
-              <!--              <td [class.bg-none]="rowIndex == 4">-->
-              <!--                {{rowIndex == 4 ? '' : user.name}}-->
-              <!--              </td>-->
-              <!--              <td [class.bg-none]="rowIndex == 5">-->
-              <!--                {{rowIndex == 5 ? '' : user.name}}-->
-              <!--              </td>-->
             </tr>
           </ng-template>
         </p-table>
@@ -44,34 +22,32 @@
       <div class="col-12">
         <h1 class="display-3">Ranking</h1>
         <p-table [value]="ranks" responsiveLayout="scroll">
-          <ng-template pTemplate="header" let-columns>
+          <ng-template pTemplate="header">
             <tr>
               <th>#</th>
-              <th>Club</th>
-              <th>MP</th>
-              <th>W</th>
-              <th>D</th>
-              <th>L</th>
+              <th>Name</th>
+              <th>Match Played</th>
+              <th>Win</th>
+              <th>Draw</th>
+              <th>Lose</th>
               <th>GF</th>
               <th>GA</th>
               <th>GD</th>
-              <th>Pts</th>
-              <th>Last 5</th>
+              <th>Point</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
             <tr>
               <th>{{rowIndex + 1}}</th>
               <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
-              <td>{{user.name}}</td>
+              <td>{{user.match_played}}</td>
+              <td>{{user.win}}</td>
+              <td>{{user.draw}}</td>
+              <td>{{user.lose}}</td>
+              <td>{{user.gf}}</td>
+              <td>{{user.ga}}</td>
+              <td>{{user.gd}}</td>
+              <td>{{user.point}}</td>
             </tr>
           </ng-template>
         </p-table>

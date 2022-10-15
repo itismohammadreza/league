@@ -65,6 +65,12 @@ h2 {
   }
 }
 
+@media (max-width: 575px) {
+  h1, h2 {
+    font-size: 3.5rem;
+  }
+}
+
 @keyframes titleAnimation {
   0% {
     transform: translateY(-50px);

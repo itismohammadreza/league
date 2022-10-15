@@ -6,7 +6,6 @@ interface IRanking {
   lose: number;
   gf: number;
   ga: number;
-  gd: number;
   point: number;
 }
 
@@ -16,9 +15,9 @@ export class Ranking {
   win: number;
   draw: number;
   lose: number;
-  gf: number;
-  ga: number;
-  gd: number;
+  gf: number;  // gole zade
+  ga: number;  // gole khorde
+  gd: string;  // tafazol gol
   point: number;
 
   constructor(rank: IRanking) {
@@ -29,7 +28,7 @@ export class Ranking {
     this.lose = rank.lose;
     this.gf = rank.gf;
     this.ga = rank.ga;
-    this.gd = rank.gd;
+    this.gd = (this.gf - this.ga) > 0 ? `+${this.gf - this.ga}` : (this.gf - this.ga).toString();
     this.point = rank.point;
   }
 }

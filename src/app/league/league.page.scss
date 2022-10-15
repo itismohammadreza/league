@@ -38,3 +38,9 @@ h1 {
       #5ac49d 40px
   );
 }
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
