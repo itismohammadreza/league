@@ -6,7 +6,6 @@ interface IRanking {
   lose: number;
   gf: number;
   ga: number;
-  point: number;
 }
 
 export class Ranking {
@@ -29,6 +28,6 @@ export class Ranking {
     this.gf = rank.gf;
     this.ga = rank.ga;
     this.gd = (this.gf - this.ga) > 0 ? `+${this.gf - this.ga}` : (this.gf - this.ga).toString();
-    this.point = rank.point;
+    this.point = (this.win * 3) + (this.draw);
   }
 }

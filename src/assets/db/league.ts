@@ -1,9 +1,9 @@
 export const League = [
-  ['    ##      ', 'AliRn ', 'AliReza', 'Reza ', 'MohammadReza', 'Behnam', 'AliReza-D '],
-  ['AliRn       ', '  ##  ', '      ', ' 3-0  ', '            ', '      ', '          '],
-  ['AliReza     ', '      ', '  ##  ', '      ', '    0-2     ', '      ', '          '],
-  ['Reza        ', '      ', '      ', '  ##  ', '    1-2     ', '      ', '          '],
-  ['MohammadReza', '      ', '      ', '      ', '     ##     ', '      ', '          '],
-  ['Behnam      ', '      ', '      ', '      ', '            ', '  ##  ', '          '],
-  ['AliReza-D   ', '      ', '      ', '      ', '            ', '      ', '     ##   '],
+  ['    ##      ', 'AliRn', 'MohammadReza', 'AliReza', 'Reza ', 'Behnam', 'AliReza-D'],
+  ['AliRn       ', '  ## ', '            ', '       ', ' 3-0 ', '      ', '         '],
+  ['MohammadReza', '     ', '     ##     ', '  2-0  ', ' 2-1 ', '  1-1 ', '         '],
+  ['AliReza     ', '     ', '            ', '  ##   ', ' 2-1 ', '      ', '         '],
+  ['Reza        ', '     ', '            ', '       ', '  ## ', '      ', '         '],
+  ['Behnam      ', '     ', '            ', '       ', '     ', '  ##  ', '         '],
+  ['AliReza-D   ', '     ', '            ', '       ', '     ', '      ', '    ##   '],
 ]

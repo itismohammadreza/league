@@ -9,7 +9,7 @@ import {Rankings} from "../../assets/db/ranking";
 })
 export class LeaguePage {
 
-  ranks = Rankings;
+  ranks = Rankings.sort((a, b) => b.point - a.point);
   league = League;
 
   isNullCell(item: string) {
