@@ -2,6 +2,6 @@
 
 cd fifa/
 git pull origin main
-docker build -t front:v1 .
-docker rm -f front
+docker build -t fifa:v1 .
+docker rm -f fifa
 ./docker_run.sh
