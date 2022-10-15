@@ -1,4 +1,4 @@
-interface IRanking {
+export interface IPlayer {
   name: string;
   match_played: number;
   win: number;
@@ -6,9 +6,16 @@ interface IRanking {
   lose: number;
   gf: number;
   ga: number;
+  matches: IMatchItem[]
 }
 
-export class Ranking {
+export interface IMatchItem {
+  against: string;
+  result: string;
+  guest: boolean
+}
+
+export class Player {
   name: string;
   match_played: number;
   win: number;
@@ -18,8 +25,9 @@ export class Ranking {
   ga: number;  // gole khorde
   gd: string;  // tafazol gol
   point: number;
+  matches: IMatchItem[];
 
-  constructor(rank: IRanking) {
+  constructor(rank: IPlayer) {
     this.name = rank.name;
     this.match_played = rank.match_played;
     this.win = rank.win;
@@ -29,5 +37,6 @@ export class Ranking {
     this.ga = rank.ga;
     this.gd = (this.gf - this.ga) > 0 ? `+${this.gf - this.ga}` : (this.gf - this.ga).toString();
     this.point = (this.win * 3) + (this.draw);
+    this.matches = rank.matches;
   }
 }

@@ -36,18 +36,20 @@
       </div>
       <div class="col-12 mb-5">
         <h1 class="display-3">League</h1>
-        <p-table [value]="league" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
-          <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
+        <p-table [value]="data" [columns]="data" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+          <ng-template pTemplate="header" let-columns>
             <tr>
-              <ng-container *ngFor="let item of data;let cellIndex=index">
-                <th *ngIf="rowIndex==0;else otherRows">{{item}}</th>
-                <ng-template #otherRows>
-                  <th *ngIf="cellIndex == 0">{{item}}</th>
-                  <td *ngIf="cellIndex != 0" [class.bg-none]="isNullCell(item)">
-                    {{ isNullCell(item) ? '' : item }}
-                  </td>
-                </ng-template>
-              </ng-container>
+              <th></th>
+              <th *ngFor="let item of columns">{{item.name}}</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-player let-rowIndex="rowIndex">
+            <tr>
+              <th>{{player.name}}</th>
+              <th *ngFor="let match of getPlayerMatches(player,rowIndex);let i=index"
+                  [class.bg-none]="match.result == ''">
+                {{isNullCell(rowIndex, i) ? '' : match.result}}
+              </th>
             </tr>
           </ng-template>
         </p-table>
