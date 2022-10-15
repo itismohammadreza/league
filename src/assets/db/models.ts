@@ -27,6 +27,9 @@ export class Player {
     const matchResults = this.matches.map(m => m.result);
     this.match_played = matchResults.filter(r => r != '-').length;
     matchResults.forEach(r => {
+      if (r == '-') {
+        return
+      }
       const goalFor = +r.split('-')[0];
       const goalAgainst = +r.split('-')[1];
       this.gf += goalFor;
@@ -35,7 +38,7 @@ export class Player {
         this.win += 1
       } else if (goalFor < goalAgainst) {
         this.lose += 1
-      } else {
+      } else if (goalFor == goalAgainst) {
         this.draw += 1
       }
     })
