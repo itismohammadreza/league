@@ -1,0 +1,40 @@
+
+.wrapper {
+  background-image: url("../../assets/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  overflow: auto;
+}
+
+p-table ::ng-deep {
+  table {
+    table-layout: fixed;
+  }
+
+  td, th {
+    padding: 1rem;
+    width: 150px;
+  }
+}
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  -webkit-text-stroke: 1px #ffe221;
+  color: #26a380;
+  font-weight: 900;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+  0px 8px 13px rgba(0, 0, 0, 0.1),
+  0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+.bg-none {
+  background: repeating-linear-gradient(
+      45deg,
+      #26a380 0px,
+      #26a380 20px,
+      #5ac49d 20px,
+      #5ac49d 40px
+  );
+}
