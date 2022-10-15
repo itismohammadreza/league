@@ -2,12 +2,6 @@ import {Player} from "./models";
 
 const AliRn = new Player({
   name: 'AliRn',
-  match_played: 1,
-  win: 1,
-  draw: 0,
-  lose: 0,
-  gf: 3,
-  ga: 0,
   matches: [
     {
       against: 'MohammadReza',
@@ -64,12 +58,6 @@ const AliRn = new Player({
 
 const MohammadReza = new Player({
   name: 'MohammadReza',
-  match_played: 3,
-  win: 2,
-  draw: 1,
-  lose: 0,
-  gf: 5,
-  ga: 2,
   matches: [
     {
       against: 'AliRn',
@@ -126,12 +114,6 @@ const MohammadReza = new Player({
 
 const Behnam = new Player({
   name: 'Behnam',
-  match_played: 1,
-  win: 0,
-  draw: 1,
-  lose: 0,
-  gf: 1,
-  ga: 1,
   matches: [
     {
       against: 'AliRn',
@@ -188,12 +170,6 @@ const Behnam = new Player({
 
 const AliReza = new Player({
   name: 'AliReza',
-  match_played: 2,
-  win: 1,
-  draw: 0,
-  lose: 1,
-  gf: 2,
-  ga: 3,
   matches: [
     {
       against: 'AliRn',
@@ -250,12 +226,6 @@ const AliReza = new Player({
 
 const AliReza_D = new Player({
   name: 'AliReza-D',
-  match_played: 0,
-  win: 0,
-  draw: 0,
-  lose: 0,
-  gf: 0,
-  ga: 0,
   matches: [
     {
       against: 'AliRn',
@@ -312,12 +282,6 @@ const AliReza_D = new Player({
 
 const Reza = new Player({
   name: 'Reza',
-  match_played: 3,
-  win: 0,
-  draw: 0,
-  lose: 3,
-  gf: 2,
-  ga: 7,
   matches: [
     {
       against: 'AliRn',
