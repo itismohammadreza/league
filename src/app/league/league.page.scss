@@ -1,46 +1,94 @@
-
-.wrapper {
-  background-image: url("../../assets/bg2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  overflow: auto;
-}
-
-p-table ::ng-deep {
-  table {
-    table-layout: fixed;
+:host ::ng-deep {
+  .wrapper {
+    background-image: url("../../assets/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: auto;
   }
 
-  td, th {
-    padding: 1rem;
-    width: 150px;
+  h1 {
+    font-size: 6rem;
+    text-align: center;
+    -webkit-text-stroke: 1px #ffe221;
+    color: #26a380;
+    font-weight: 900;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+    0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
   }
-}
 
-h1 {
-  font-size: 6rem;
-  text-align: center;
-  -webkit-text-stroke: 1px #ffe221;
-  color: #26a380;
-  font-weight: 900;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
-  0px 8px 13px rgba(0, 0, 0, 0.1),
-  0px 18px 23px rgba(0, 0, 0, 0.1);
-}
+  p-table {
+    table {
+      table-layout: fixed;
+    }
 
-.bg-none {
-  background: repeating-linear-gradient(
-      45deg,
-      #26a380 0px,
-      #26a380 20px,
-      #5ac49d 20px,
-      #5ac49d 40px
-  );
+    td, th {
+      padding: 1rem;
+      width: 200px;
+    }
+
+    .bg-none {
+      background: repeating-linear-gradient(
+          45deg,
+          #26a380 0px,
+          #26a380 20px,
+          #5ac49d 20px,
+          #5ac49d 40px
+      );
+    }
+
+    .damirchi {
+      background-color: #f8d7da !important;
+      border: 3px solid #ff0d27 !important;
+    }
+  }
+
+  &.ranking {
+    img {
+      width: 25px;
+      margin-right: 0.5rem;
+    }
+
+    tbody td:first-of-type {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-weight: bold;
+    }
+
+    tr.gold {
+      td {
+        font-weight: bold;
+        background: linear-gradient(90deg, rgba(186, 148, 62, 1) 0%, rgba(236, 172, 32, 1) 20%, rgba(186, 148, 62, 1) 39%, rgba(249, 244, 180, 1) 50%, rgba(186, 148, 62, 1) 60%, rgba(236, 172, 32, 1) 80%, rgba(186, 148, 62, 1) 110%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 2s infinite;
+        background-size: 200%;
+        background-position: left;
+
+        > img {
+          align-self: flex-end;
+        }
+
+        span img {
+          display: block;
+          margin: auto;
+        }
+      }
+
+    }
+  }
 }
 
 @media (max-width: 575px) {
   h1 {
     font-size: 3.5rem;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: right
   }
 }

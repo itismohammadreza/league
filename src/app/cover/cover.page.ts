@@ -9,9 +9,10 @@ import {Router} from "@angular/router";
 export class CoverPage implements OnInit {
   constructor(private router: Router) {
   }
+
   ngOnInit(): void {
     setTimeout(() => {
-      this.router.navigateByUrl('/desc')
+      this.router.navigateByUrl('/league')
     }, 3000)
   }
 }

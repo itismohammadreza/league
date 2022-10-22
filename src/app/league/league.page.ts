@@ -10,7 +10,20 @@ import {IMatchItem, Player} from "../../assets/db/models";
 export class LeaguePage {
   data = Data;
   players = this.data.map(item => item.name);
-  ranks = (JSON.parse(JSON.stringify(this.data)) as Player[]).sort((a, b) => b.point - a.point);
+  ranks = (JSON.parse(JSON.stringify(this.data)) as Player[]).sort((a, b) => {
+    if (a.point > b.point) {
+      return -1
+    } else if (a.point < b.point) {
+      return 1
+    } else if (a.point == b.point) {
+      if (+a.gd > +b.gd) {
+        return -1
+      } else {
+        return 1
+      }
+    }
+    return 0
+  });
 
   ngOnInit() {
   }

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1 class="display-3">Ranking</h1>
-        <p-table [value]="ranks" responsiveLayout="scroll">
+        <p-table class="ranking" [value]="ranks" responsiveLayout="scroll">
           <ng-template pTemplate="header">
             <tr>
               <th>#</th>
@@ -18,25 +18,32 @@
               <th>Point</th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
-            <tr>
+          <ng-template pTemplate="body" let-player let-rowIndex="rowIndex">
+            <tr [class.gold]="rowIndex == 0" [class.damirchi]="player.name=='AliReza-D'">
               <th>{{rowIndex + 1}}</th>
-              <td>{{user.name}}</td>
-              <td>{{user.match_played}}</td>
-              <td>{{user.win}}</td>
-              <td>{{user.draw}}</td>
-              <td>{{user.lose}}</td>
-              <td>{{user.gf}}</td>
-              <td>{{user.ga}}</td>
-              <td>{{user.gd}}</td>
-              <td>{{user.point}}</td>
+              <td>
+                <img [src]="'assets/logos/'+player.name+'.png'">
+                <span>
+                  <img *ngIf="rowIndex == 0" src="assets/crown.jpg">
+                  <span [attr.data-text]="player.name">{{player.name}}</span>
+                </span>
+              </td>
+              <td>{{player.match_played}}</td>
+              <td>{{player.win}}</td>
+              <td>{{player.draw}}</td>
+              <td>{{player.lose}}</td>
+              <td>{{player.gf}}</td>
+              <td>{{player.ga}}</td>
+              <td>{{player.gd}}</td>
+              <td>{{player.point}}</td>
             </tr>
           </ng-template>
         </p-table>
       </div>
       <div class="col-12 mb-5">
         <h1 class="display-3">League</h1>
-        <p-table [value]="data" [columns]="data" responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+        <p-table class="league" [value]="data" [columns]="data" responsiveLayout="scroll"
+                 styleClass="p-datatable-gridlines">
           <ng-template pTemplate="header" let-columns>
             <tr>
               <th></th>

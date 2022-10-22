@@ -10,24 +10,35 @@ const AliRn = new Player({
     },
     {
       against: 'Behnam',
-      result: '-',
+      result: '1-2',
       guest: false
     },
     {
       against: 'AliReza',
-      result: '-',
+      result: '1-0',
       guest: false
     },
     {
       against: 'AliReza_D',
-      result: '-',
+      result: '2-0',
       guest: false
     },
     {
       against: 'Reza',
-      result: '-',
+      result: '3-0',
       guest: false
     },
+    {
+      against: 'MJ',
+      result: '1-3',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '1-1',
+      guest: false
+    },
+
     {
       against: 'MohammadReza',
       result: '-',
@@ -50,6 +61,16 @@ const AliRn = new Player({
     },
     {
       against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
       result: '-',
       guest: true
     },
@@ -66,24 +87,35 @@ const MohammadReza = new Player({
     },
     {
       against: 'Behnam',
-      result: '-',
+      result: '1-1',
       guest: false
     },
     {
       against: 'AliReza',
-      result: '-',
+      result: '2-0',
       guest: false
     },
     {
       against: 'AliReza_D',
-      result: '-',
+      result: '6-0',
       guest: false
     },
     {
       against: 'Reza',
-      result: '-',
+      result: '2-1',
       guest: false
     },
+    {
+      against: 'MJ',
+      result: '2-4',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '3-2',
+      guest: false
+    },
+
     {
       against: 'AliRn',
       result: '-',
@@ -106,6 +138,16 @@ const MohammadReza = new Player({
     },
     {
       against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
       result: '-',
       guest: true
     },
@@ -117,29 +159,40 @@ const Behnam = new Player({
   matches: [
     {
       against: 'AliRn',
-      result: '-',
+      result: '2-1',
       guest: false
     },
     {
       against: 'MohammadReza',
-      result: '-',
+      result: '1-1',
       guest: false
     },
     {
       against: 'AliReza',
-      result: '-',
+      result: '4-1',
       guest: false
     },
     {
       against: 'AliReza_D',
-      result: '-',
+      result: '5-3',
       guest: false
     },
     {
       against: 'Reza',
+      result: '2-2',
+      guest: false
+    },
+    {
+      against: 'MJ',
       result: '-',
       guest: false
     },
+    {
+      against: 'Sepehr',
+      result: '3-0',
+      guest: false
+    },
+
     {
       against: 'AliRn',
       result: '-',
@@ -162,6 +215,16 @@ const Behnam = new Player({
     },
     {
       against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
       result: '-',
       guest: true
     },
@@ -173,29 +236,40 @@ const AliReza = new Player({
   matches: [
     {
       against: 'AliRn',
-      result: '-',
+      result: '0-1',
       guest: false
     },
     {
       against: 'MohammadReza',
-      result: '-',
+      result: '0-2',
       guest: false
     },
     {
       against: 'Behnam',
-      result: '-',
+      result: '1-4',
       guest: false
     },
     {
       against: 'AliReza_D',
-      result: '-',
+      result: '4-1',
       guest: false
     },
     {
       against: 'Reza',
-      result: '-',
+      result: '1-2',
       guest: false
     },
+    {
+      against: 'MJ',
+      result: '1-3',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '1-1',
+      guest: false
+    },
+
     {
       against: 'AliRn',
       result: '-',
@@ -218,6 +292,16 @@ const AliReza = new Player({
     },
     {
       against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
       result: '-',
       guest: true
     },
@@ -229,22 +313,22 @@ const AliReza_D = new Player({
   matches: [
     {
       against: 'AliRn',
-      result: '-',
+      result: '0-2',
       guest: false
     },
     {
       against: 'MohammadReza',
-      result: '-',
+      result: '0-6',
       guest: false
     },
     {
       against: 'Behnam',
-      result: '-',
+      result: '3-5',
       guest: false
     },
     {
       against: 'AliReza',
-      result: '-',
+      result: '1-4',
       guest: false
     },
     {
@@ -252,6 +336,17 @@ const AliReza_D = new Player({
       result: '-',
       guest: false
     },
+    {
+      against: 'MJ',
+      result: '0-3',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '1-1',
+      guest: false
+    },
+
     {
       against: 'AliRn',
       result: '-',
@@ -274,6 +369,16 @@ const AliReza_D = new Player({
     },
     {
       against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
       result: '-',
       guest: true
     },
@@ -285,12 +390,89 @@ const Reza = new Player({
   matches: [
     {
       against: 'AliRn',
-      result: '-',
+      result: '0-3',
       guest: false
     },
     {
       against: 'MohammadReza',
+      result: '1-2',
+      guest: false
+    },
+    {
+      against: 'Behnam',
+      result: '2-2',
+      guest: false
+    },
+    {
+      against: 'AliReza',
+      result: '2-1',
+      guest: false
+    },
+    {
+      against: 'AliReza_D',
       result: '-',
+      guest: false
+    },
+    {
+      against: 'MJ',
+      result: '1-0',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '1-1',
+      guest: false
+    },
+
+    {
+      against: 'AliRn',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MohammadReza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Behnam',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'AliReza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'AliReza_D',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
+      result: '-',
+      guest: true
+    },
+  ]
+})
+
+const MJ = new Player({
+  name: 'MJ',
+  matches: [
+    {
+      against: 'AliRn',
+      result: '3-1',
+      guest: false
+    },
+    {
+      against: 'MohammadReza',
+      result: '4-2',
       guest: false
     },
     {
@@ -300,12 +482,100 @@ const Reza = new Player({
     },
     {
       against: 'AliReza',
-      result: '-',
+      result: '3-1',
       guest: false
     },
     {
       against: 'AliReza_D',
+      result: '3-0',
+      guest: false
+    },
+    {
+      against: 'Reza',
+      result: '0-1',
+      guest: false
+    },
+    {
+      against: 'Sepehr',
+      result: '2-1',
+      guest: false
+    },
+
+    {
+      against: 'AliRn',
       result: '-',
+      guest: true
+    },
+    {
+      against: 'MohammadReza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Behnam',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'AliReza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'AliReza_D',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'Sepehr',
+      result: '-',
+      guest: true
+    },
+  ]
+})
+
+
+const Sepehr = new Player({
+  name: 'Sepehr',
+  matches: [
+    {
+      against: 'AliRn',
+      result: '1-1',
+      guest: false
+    },
+    {
+      against: 'MohammadReza',
+      result: '2-3',
+      guest: false
+    },
+    {
+      against: 'Behnam',
+      result: '0-3',
+      guest: false
+    },
+    {
+      against: 'AliReza',
+      result: '1-1',
+      guest: false
+    },
+    {
+      against: 'AliReza_D',
+      result: '1-1',
+      guest: false
+    },
+    {
+      against: 'Reza',
+      result: '1-1',
+      guest: false
+    },
+    {
+      against: 'MJ',
+      result: '1-2',
       guest: false
     },
     {
@@ -333,7 +603,17 @@ const Reza = new Player({
       result: '-',
       guest: true
     },
+    {
+      against: 'Reza',
+      result: '-',
+      guest: true
+    },
+    {
+      against: 'MJ',
+      result: '-',
+      guest: true
+    },
   ]
 })
 
-export const Data: Player[] = [AliRn, MohammadReza, Behnam, AliReza, AliReza_D, Reza];
+export const Data: Player[] = [AliRn, MohammadReza, Behnam, AliReza, AliReza_D, Reza, MJ, Sepehr];
