@@ -1,200 +1,33 @@
-$line-width: 1px;
-
 *,
 *:after,
 *:before {
   box-sizing: border-box;
 }
 
-.tournament-tree {
-  display: grid;
-  width: 1216px;
-  margin: auto;
-  grid-gap: 16px;
-  //grid-template-rows: 83px;
-  //grid-template-columns: 160px;
-  grid-template-areas:
-        'slot--18-1 . . . . . slot--18-5'
-        '. slot--14-1 . . . slot--14-3 .'
-        'slot--18-2 . . . . . slot--18-6'
-        '. . slot--12-1 slot--11-1 slot--12-2 . .'
-        'slot--18-3 . . . . . slot--18-7'
-        '. slot--14-2 . . . slot--14-4 .'
-        'slot--18-4 . . . . . slot--18-8';
-}
-
-.slot--18-1 {
-  grid-area: slot--18-1;
-}
-
-.slot--18-2 {
-  grid-area: slot--18-2;
-}
-
-.slot--18-3 {
-  grid-area: slot--18-3;
-}
-
-.slot--18-4 {
-  grid-area: slot--18-4;
-}
-
-.slot--18-5 {
-  grid-area: slot--18-5;
-}
-
-.slot--18-6 {
-  grid-area: slot--18-6;
-}
-
-.slot--18-7 {
-  grid-area: slot--18-7;
-}
-
-.slot--18-8 {
-  grid-area: slot--18-8;
-}
-
-.slot--14-1 {
-  grid-area: slot--14-1;
-}
-
-.slot--14-2 {
-  grid-area: slot--14-2;
-}
-
-.slot--14-3 {
-  grid-area: slot--14-3;
-}
-
-.slot--14-4 {
-  grid-area: slot--14-4;
-}
-
-.slot--12-1 {
-  grid-area: slot--12-1;
-}
-
-.slot--12-2 {
-  grid-area: slot--12-2;
-}
-
-.slot--11-1 {
-  grid-area: slot--11-1;
-}
-
-.slot {
-  border: 1px solid #263e6d;
-  background: #fff;
-  position: relative;
-  white-space: nowrap;
-}
-
-.slot:after,
-.slot:before {
-  content: '';
-  background: #b70711;
-  position: absolute;
-  top: 50%;
-}
-
-/** right side **/
-.slot--left:after,
-.slot--11-1:after,
-[class*="slot--14-"].slot--right:before {
-  width: 8px;
-  height: $line-width;
-  right: -1px;
-  transform: translate(100%, -50%);
-}
-
-/** left side **/
-.slot--right:after,
-.slot--11-1:before,
-[class*="slot--14-"].slot--left:before {
-  width: 8px;
-  height: $line-width;
-  left: -1px;
-  transform: translate(-100%, -50%);
-}
-
-[class*="slot--12-"].slot--left:after {
-  left: -1px;
-  transform: translate(-100%, -50%);
-}
-
-[class*="slot--12-"].slot--left:before,
-[class*="slot--12-"].slot--right:before {
-  width: $line-width;
-  height: 397px;
-}
-
-.slot--12-1:before {
-  left: 0;
-  transform: translate(-10px, -50%);
-}
-
-[class*="slot--12-"].slot--right:after {
-  left: auto;
-  right: 0;
-  transform: translate(100%, -50%);
-}
-
-[class*="slot--12-"].slot--right:before {
-  right: 0;
-  left: auto;
-  transform: translate(10px, -50%);
-}
-
-[class*="slot--18-"].slot--top:before {
-  width: $line-width;
-  height: 199px;
-}
-
-[class*="slot--18-"].slot--top.slot--left:before {
-  right: 0;
-  transform: translate(9px, 0px);;
-}
-
-[class*="slot--18-"].slot--top.slot--right:before {
-  left: 0;
-  transform: translate(-10px, -1px);
-}
-
-.slot--11-1:after,
-.slot--11-1:before {
-  width: 18px;
-}
-
-.team {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  font-weight: 700;
-  background: #ddd;
-
-  &:last-child {
-    border-top: 1px solid #263e6d;
-  }
-}
-
-.name,
-.score {
-  padding: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.score {
-  background: #263e6d;
-  color: #d0d3db;
-  flex: 0 0 30px;
-  justify-content: center;
-}
-
-///////////////////////////////////////////////////////////////////////////////
 .bracket {
   white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 2rem;
+
+  &:after {
+    content: "";
+    background-image: url("../../assets/bg2.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(7px);
+  }
 
   .round,
   .couple > div {
@@ -214,6 +47,7 @@ $line-width: 1px;
     padding: 0 0.75rem;
     display: flex;
     align-items: center;
+    background-color: #ffffff;
 
     &:first-child {
       border-bottom-width: 1px;
@@ -324,11 +158,23 @@ $line-width: 1px;
 }
 
 .end {
-  //translateY(calc(35rem - 100px));
+  transform: translateY(35rem);
 
   .matchups {
     display: flex !important;
     align-items: center;
+
+    .matchup {
+      position: relative;
+
+      img {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+      }
+    }
   }
 
   .connector {
@@ -339,8 +185,5 @@ $line-width: 1px;
     }
   }
 
-  img {
-    width: 100px;
-  }
 }
 
