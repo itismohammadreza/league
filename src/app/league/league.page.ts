@@ -50,8 +50,6 @@ export class LeaguePage {
       const draw = playerMatches.filter(isDraw).length;
       const lose = playerMatches.filter(isLoser).length;
       const gf = playerMatches.map(m => isWinner(m) ? m.gf : m.ga).reduce((a, b) => a + b, 0);
-      console.log(p.name, playerMatches.map(m => isWinner(m) ? m.gf : m.ga))
-      console.log(p.name, playerMatches.map(m => isLoser(m) ? m.ga : m.gf))
       const ga = playerMatches.map(m => isLoser(m) ? m.gf : m.ga).reduce((a, b) => a + b, 0);
       const gd = (gf - ga) > 0 ? `+${gf - ga}` : (gf - ga).toString();
       const point = (win * 3) + draw;
