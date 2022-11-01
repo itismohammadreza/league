@@ -8,20 +8,20 @@ import {LeaguePage} from './league/league.page';
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LoadingPage} from './loading/loading.page';
-import {DescPage} from './desc/desc.page';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoadingPage,
     CoverPage,
-    DescPage,
     LeaguePage,
   ],
   imports: [
     BrowserModule,
     PrimeNgModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -30,10 +30,6 @@ import {DescPage} from './desc/desc.page';
       {
         path: 'cover',
         component: CoverPage
-      },
-      {
-        path: 'desc',
-        component: DescPage
       },
       {
         path: 'league',

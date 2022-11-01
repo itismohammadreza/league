@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1 class="display-3">Ranking</h1>
-        <p-table class="ranking" [value]="ranks" responsiveLayout="scroll">
+        <p-table class="ranking" [value]="ranks" [columns]="players" responsiveLayout="scroll">
           <ng-template pTemplate="header">
             <tr>
               <th>#</th>
@@ -22,13 +22,13 @@
             <tr [class.gold]="rowIndex == 0" [class.damirchi]="player.name=='AliReza-D'">
               <th>{{rowIndex + 1}}</th>
               <td>
-                <img [src]="'assets/logos/'+player.name+'.png'">
+                <img [src]="player.flag">
                 <span>
                   <img *ngIf="rowIndex == 0" src="assets/crown.jpg">
                   <span [attr.data-text]="player.name">{{player.name}}</span>
                 </span>
               </td>
-              <td>{{player.match_played}}</td>
+              <td>{{player.matchPlayed}}</td>
               <td>{{player.win}}</td>
               <td>{{player.draw}}</td>
               <td>{{player.lose}}</td>
@@ -42,7 +42,7 @@
       </div>
       <div class="col-12 mb-5">
         <h1 class="display-3">League</h1>
-        <p-table class="league" [value]="data" [columns]="data" responsiveLayout="scroll"
+        <p-table class="league" [value]="players" [columns]="players" responsiveLayout="scroll"
                  styleClass="p-datatable-gridlines">
           <ng-template pTemplate="header" let-columns>
             <tr>
@@ -54,8 +54,8 @@
             <tr>
               <th>{{player.name}}</th>
               <th *ngFor="let match of getPlayerMatches(player,rowIndex);let i=index"
-                  [class.bg-none]="match.result == ''">
-                {{isNullCell(rowIndex, i) ? '' : match.result}}
+                  [class.bg-none]="match.player1.id == match.player2.id">
+                {{getMatchResult(match)}}
               </th>
             </tr>
           </ng-template>
