@@ -14,20 +14,6 @@ export class LeaguePage {
   matches: IMatch[] = [];
   players: IPlayer[] = [];
   ranks: IRank[] = []
-  //   = (JSON.parse(JSON.stringify(this.data)) as Player[]).sort((a, b) => {
-  //   if (a.point > b.point) {
-  //     return -1
-  //   } else if (a.point < b.point) {
-  //     return 1
-  //   } else if (a.point == b.point) {
-  //     if (+a.gd > +b.gd) {
-  //       return -1
-  //     } else {
-  //       return 1
-  //     }
-  //   }
-  //   return 0
-  // });
 
   ngOnInit() {
     this.loadData()
@@ -65,38 +51,37 @@ export class LeaguePage {
         point,
       })
     })
+    this.ranks.sort((a, b) => {
+      if (a.point > b.point) {
+        return -1
+      } else if (a.point < b.point) {
+        return 1
+      } else if (a.point == b.point) {
+        if (+a.gd > +b.gd) {
+          return -1
+        } else {
+          return 1
+        }
+      }
+      return 0
+    });
   }
 
-  getPlayerMatches(player: IPlayer, rowIndex: number) {
+  getPlayerMatches(player: IPlayer) {
     const matches: IMatch[] = [];
     for (let i = 0; i < this.players.length; i++) {
-      const matchData = this.matches.find(m => m.player1.id == player.id && m.player2.id == this.players[i].id)
+      const matchData = this.matches.find(m => (m.player1.id == player.id && m.player2.id == this.players[i].id))
       const matchItem: IMatch = {
         player1: player,
         player2: this.players[i],
         date: matchData?.date || '',
         winner: matchData?.winner || null,
-        ga: matchData?.ga || null,
-        gf: matchData?.gf || null,
+        ga: matchData?.ga != undefined ? matchData?.ga : null,
+        gf: matchData?.gf != undefined ? matchData?.gf : null,
       }
       matches.push(matchItem)
     }
-    // const matches = this.matches.find(p => p.name == player.name)!.matches;
-    // const isGuestMatch = matches.filter(m => m.guest);
-    // const isNotGuestMatch = matches.filter(m => !m.guest);
-    // for (let i = 0; i < rowIndex; i++) {
-    //   result.push(isGuestMatch[i])
-    // }
-    // result[rowIndex] = {
-    //   against: player.name,
-    //   result: '',
-    //   guest: false
-    // }
-    // for (let i = rowIndex; i < isNotGuestMatch.length; i++) {
-    //   result.push(isNotGuestMatch[i])
-    // }
-    // return result;
-    return matches
+    return matches;
   }
 
   getMatchResult(match: IMatch) {

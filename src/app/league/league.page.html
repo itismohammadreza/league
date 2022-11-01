@@ -53,7 +53,7 @@
           <ng-template pTemplate="body" let-player let-rowIndex="rowIndex">
             <tr>
               <th>{{player.name}}</th>
-              <th *ngFor="let match of getPlayerMatches(player,rowIndex);let i=index"
+              <th *ngFor="let match of getPlayerMatches(player);let i=index"
                   [class.bg-none]="match.player1.id == match.player2.id">
                 {{getMatchResult(match)}}
               </th>
