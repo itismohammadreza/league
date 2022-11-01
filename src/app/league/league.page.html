@@ -54,7 +54,7 @@
             <tr>
               <th>{{player.name}}</th>
               <th *ngFor="let match of getPlayerMatches(player);let i=index"
-                  [class.bg-none]="match.player1.id == match.player2.id">
+                  [class.bg-none]="match.player1.id == match.player2.id || rowIndex>i">
                 {{getMatchResult(match)}}
               </th>
             </tr>

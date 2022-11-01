@@ -59,8 +59,22 @@ export class LeaguePage {
       } else if (a.point == b.point) {
         if (+a.gd > +b.gd) {
           return -1
-        } else {
+        } else if (+a.gd < +b.gd) {
           return 1
+        } else if (a.gd == b.gd) {
+          if (+a.gf > +b.gf) {
+            return -1
+          } else if (+a.gf < +b.gf) {
+            return 1
+          } else if (+a.gf == +b.gf) {
+            if (+a.ga > +b.ga) {
+              return -1
+            } else if (+a.ga < +b.ga) {
+              return 1
+            } else if (+a.ga == +b.ga) {
+              return 1
+            }
+          }
         }
       }
       return 0
@@ -85,7 +99,7 @@ export class LeaguePage {
   }
 
   getMatchResult(match: IMatch) {
-    if (match.player1.id == match.player2.id || !match.winner) {
+    if (match.player1.id == match.player2.id || (!match.winner && !match.gf)) {
       return '';
     }
     return `${match.gf}-${match.ga}`
