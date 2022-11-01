@@ -42,7 +42,7 @@
       </div>
       <div class="col-12 mb-5">
         <h1 class="display-3">League</h1>
-        <p-table class="league" [value]="players" [columns]="players" responsiveLayout="scroll"
+        <p-table class="league"  [value]="players" [columns]="players" responsiveLayout="scroll"
                  styleClass="p-datatable-gridlines">
           <ng-template pTemplate="header" let-columns>
             <tr>
@@ -52,11 +52,11 @@
           </ng-template>
           <ng-template pTemplate="body" let-player let-rowIndex="rowIndex">
             <tr>
-              <th>{{player.name}}</th>
-              <th *ngFor="let match of getPlayerMatches(player);let i=index"
+              <td>{{player.name}}</td>
+              <td *ngFor="let match of getPlayerMatches(player);let i=index"
                   [class.bg-none]="match.player1.id == match.player2.id || rowIndex>i">
                 {{getMatchResult(match)}}
-              </th>
+              </td>
             </tr>
           </ng-template>
         </p-table>

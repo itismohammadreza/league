@@ -25,22 +25,10 @@
 
     td, th {
       padding: 1rem;
-      width: 200px;
     }
 
     .bg-none {
-      background: repeating-linear-gradient(
-          45deg,
-          #26a380 0px,
-          #26a380 20px,
-          #5ac49d 20px,
-          #5ac49d 40px
-      );
-    }
-
-    .damirchi {
-      background-color: #f8d7da !important;
-      border: 3px solid #ff0d27 !important;
+      background: repeating-linear-gradient(45deg, #26a380 2px, #26a380 6px, #5ac49d 3px, #5ac49d 22px)
     }
   }
 
@@ -77,6 +65,13 @@
         }
       }
 
+    }
+  }
+
+  &.league {
+    th, td {
+      min-width: 130px;
+      font-weight: bold;
     }
   }
 }
