@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IMatch, IPlayer, IRank} from "../models";
+import {Match, Player, Rank} from "../models";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -11,17 +11,17 @@ export class LeaguePage {
   constructor(private http: HttpClient) {
   }
 
-  matches: IMatch[] = [];
-  players: IPlayer[] = [];
-  ranks: IRank[] = []
+  matches: Match[] = [];
+  players: Player[] = [];
+  ranks: Rank[] = [];
 
   ngOnInit() {
     this.loadData()
   }
 
   async loadData() {
-    this.matches = await this.http.get<IMatch[]>('http://tournament.league23.ir/matches/').toPromise() || [];
-    this.players = await this.http.get<IPlayer[]>('http://tournament.league23.ir/players/').toPromise() || [];
+    this.matches = await this.http.get<Match[]>('http://tournament.league23.ir/matches/').toPromise() || [];
+    this.players = await this.http.get<Player[]>('http://tournament.league23.ir/players/').toPromise() || [];
     this.getRanks()
   }
 
@@ -29,7 +29,7 @@ export class LeaguePage {
     this.players.forEach(p => {
       const playerMatches = this.matches.filter(m => m.player1.id == p.id || m.player2.id == p.id);
       const isWinner = m => (m.winner == 'Player1' && m.player1.id == p.id) || (m.winner == 'Player2' && m.player2.id == p.id);
-      const isDraw = m => (m.winner == null && m.ga != null);
+      const isDraw = m => (m.winner == null && m.ga != null && m.gf != null && m.ga == m.gf);
       const isLoser = m => (m.winner == 'Player1' && m.player2.id == p.id) || (m.winner == 'Player2' && m.player1.id == p.id);
       const matchPlayed = playerMatches.length;
       const win = playerMatches.filter(isWinner).length;
@@ -81,11 +81,11 @@ export class LeaguePage {
     });
   }
 
-  getPlayerMatches(player: IPlayer) {
-    const matches: IMatch[] = [];
+  getPlayerMatches(player: Player) {
+    const matches: Match[] = [];
     for (let i = 0; i < this.players.length; i++) {
       const matchData = this.matches.find(m => (m.player1.id == player.id && m.player2.id == this.players[i].id))
-      const matchItem: IMatch = {
+      const matchItem: Match = {
         player1: player,
         player2: this.players[i],
         date: matchData?.date || '',
@@ -98,7 +98,7 @@ export class LeaguePage {
     return matches;
   }
 
-  getMatchResult(match: IMatch) {
+  getMatchResult(match: Match) {
     if (match.player1.id == match.player2.id || (!match.winner && !match.gf)) {
       return '';
     }
