@@ -14,14 +14,17 @@ export class LeaguePage {
   matches: Match[] = [];
   players: Player[] = [];
   ranks: Rank[] = [];
+  loading: boolean = false;
 
   ngOnInit() {
     this.loadData()
   }
 
   async loadData() {
+    this.loading = true;
     this.matches = await this.http.get<Match[]>('http://tournament.league23.ir/matches/').toPromise() || [];
     this.players = await this.http.get<Player[]>('http://tournament.league23.ir/players/').toPromise() || [];
+    this.loading = false;
     this.getRanks()
   }
 
@@ -35,8 +38,10 @@ export class LeaguePage {
       const win = playerMatches.filter(isWinner).length;
       const draw = playerMatches.filter(isDraw).length;
       const lose = playerMatches.filter(isLoser).length;
-      const gf = playerMatches.map(m => isWinner(m) ? m.gf : m.ga).reduce((a, b) => a + b, 0);
-      const ga = playerMatches.map(m => isLoser(m) ? m.gf : m.ga).reduce((a, b) => a + b, 0);
+      const gfMap = [...playerMatches.filter(isWinner).map(m => m.gf), ...playerMatches.filter(isLoser).map(m => m.ga), ...playerMatches.filter(isDraw).map(m => m.gf)]
+      const gaMap = [...playerMatches.filter(isWinner).map(m => m.ga), ...playerMatches.filter(isLoser).map(m => m.gf), ...playerMatches.filter(isDraw).map(m => m.ga)]
+      const gf = gfMap.reduce((a, b) => a + b, 0);
+      const ga = gaMap.reduce((a, b) => a + b, 0);
       const gd = (gf - ga) > 0 ? `+${gf - ga}` : (gf - ga).toString();
       const point = (win * 3) + draw;
       this.ranks.push({
@@ -84,24 +89,24 @@ export class LeaguePage {
   getPlayerMatches(player: Player) {
     const matches: Match[] = [];
     for (let i = 0; i < this.players.length; i++) {
-      const matchData = this.matches.find(m => (m.player1.id == player.id && m.player2.id == this.players[i].id))
-      const matchItem: Match = {
+      const matchItem: any = {
         player1: player,
         player2: this.players[i],
-        date: matchData?.date || '',
-        winner: matchData?.winner || null,
-        ga: matchData?.ga != undefined ? matchData?.ga : null,
-        gf: matchData?.gf != undefined ? matchData?.gf : null,
       }
       matches.push(matchItem)
     }
     return matches;
   }
 
-  getMatchResult(match: Match) {
-    if (match.player1.id == match.player2.id || (!match.winner && !match.gf)) {
+  getMatchResult(match: Match, i: number) {
+    const playerIndex = this.players.findIndex(p => p.id == match.player1.id);
+    if (i <= playerIndex) {
       return '';
     }
-    return `${match.gf}-${match.ga}`
+    const matchData = this.matches.find(m => (m.player1.id == match.player1.id && m.player2.id == match.player2.id));
+    if (!matchData) {
+      return ''
+    }
+    return matchData.winner == 'Player1' ? `${matchData.gf}-${matchData.ga}` : `${matchData.ga}-${matchData.gf}`;
   }
 }
